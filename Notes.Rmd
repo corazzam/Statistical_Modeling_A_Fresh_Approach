@@ -1,0 +1,103 @@
+---
+title: "Notes_statistical_modelling"
+output: html_notebook
+---
+
+# Chapter 1 
+
+Statistics is the explanation of variation in the context of what remains unexplained.
+
+# Chapter 3
+
+One way to describe typical variation is to specify a fraction of the cases that are regarded as typical and then give the *coverage interval* or range that includes that fraction of the cases.
+
+The height of the person at position 225 – 64.0 inches – is the *25th* *percentile* of the height variable in the sample.
+
+In general-purpose statistics, it’s conventional to divide *into four groups: quartiles *. 
+
+*The most famous percentile is the 50th: the median*, which is the value that half of the cases are above and half below. The median gives a good representation of a typical value. In this sense, it is much like the *mean: the average of all the values*.
+
+Any given individual case will likely deviate from the single model value. The value of an individual can be written in a way that emphasizes the common model value shared by all the cases and the deviation from that value of each individual:
+
+individual case = model value + deviation of that case
+
+* *Mean square* = (sum residuals^2) / (N-1)
+* *Variance* = mean square of the example where every-case-same-model (also called "grand model" (opposite is group-wise). The variance provides a compact description of how far cases are, on average, from the mean.
+* *Std deviation* = sqrt of variance --> Basically this is the "typical residual"
+
+Histograms have been a standard graphical format for more than a century, but even so they are often not interpreted correctly. Many people wrongly believe that variation in the data is reflected by the uneven height of the bars. Rather, the variation is represented by the width of the spread measured from side to side, not from bottom to top.
+
+This sort of distribution is called skew right, since the long “tail” of the distribution runs to the right. 
+
+A simple measure of variation in two-level categorical variables is called, somewhat awkwardly, the *unalikeability.*  If all of the cases are the same (e.g., all are F), then the unalikeability is zero – no variation at all. The highest possible level of unalikeability occurs when there are equal numbers in each level; this gives an unalikeability of 0.5. 
+Here’s another way to think about unalikeability: although you can’t really say how far F is from M, you can certainly see the difference. Pick two of the cases at random from your sample. The unalikeability is the probability that the two cases will be different: one an M and the other an F.
+
+# Chapter 4
+
+The variance in particular has a property that is extremely advantageous for describing how much variation a model accounts for: the variance partitions the variation between that explained or accounted for by a model, and the remaining variation that remains unexplained or unaccounted for. This latter is called the *residual variation*.
+
+*  *partitioning property of the variance*: the overall case-by-case variation in a quantity is split between the variation in the model values and the variation in the residuals. 
+
+Model values² + Residuals² = Actual values² .
+
+The variance has this property of partitioning for a certain kind of model – group-wise means and the generalization of that called linear, least-squares models.
+
+The main point of constructing *group-wise models* is to be able to support a claim that the groups are different, or perhaps to refute such a claim. In thinking about differences, it’s helpful to distinguish between two sorts of criteria:
+
+Whether the difference is substantial or important in terms of the phenomenon that you are studying. For example, Administrative workers in the previous example were terminated at a rate of 8.27%, whereas Managers were terminated at a rate of 8.16%. This hardly makes a difference.
+How much evidence there is for any difference at all. This is a more subtle point.
+
+Quantifying and interpreting this sampling variability is an important component of statistical reasoning. The techniques to do so are introduced in Chapter 5 and then expanded in later chapters. But before moving on to the techniques for quantifying sampling variability, consider the common format for presenting it: *the confidence interval*.
+
+A confidence interval is a way of expressing the precision or repeatability of a statistic, how much variation would likely be present across the possible different random samples from the population. In format, *it is a form of coverage interval, typically taken at the 95% level*, and looks like this:
+
+68.6 ± 3.3
+
+The first number, 68.6 here, is called the point estimate, and is the statistic itself. The second number, the margin of error, reflects how precise the point estimate is. There is a third number, sometimes stated explicitly, sometimes left implicit, the confidence level, which is the level of the coverage interval, typically 95%.
+
+# Chapter 5
+
+A quantity such as the mean or median itself has limited precision. This isn’t a matter of the calculation itself. If the calculation has been done correctly, the resulting quantity is exactly right. Instead the limited precision arises from the sampling process that was used to collect the data.
+
+As a rule, the square width of the sampling distribution scales with 1/n, that is,
+
+For almost all practical work, you need to estimate the properties of the sampling distribution from your single sample of size n.
+
+One way to do this is called bootstrapping. The word itself is not very illuminating. It’s drawn from the phrase, “He pulled himself up by his own bootstraps,” said of someone who improves himself through his own efforts, without assistance.
+
+New samples, taken from your original sample, not from the population, are called resamples
+ 
+ the resamples do the job; they simulate the variation in model coefficients introduced by the process of random sampling.
+
+The process of finding confidence intervals via re-sampling is called *bootstrapping.*
+
+the re-sampling distributions have a standard error that is a close match to the standard error of the sampling distribution.
+
+The vocabulary of “confidence interval” and “confidence level” can be a little misleading. Confidence in everyday meaning is largely subjective, and you often hear of people being “over confident” or “lacking self-confidence.” It might be better if a term like “sampling precision interval” were used. 
+
+The confidence interval does not tell you how much a typical individual differs from the mean.
+
+
+# Chapter 6 - Language of models
+
+The *response variable* is the variable whose behavior or variation you are trying to understand. On a graph, the response variable is conventionally plotted on the vertical axis.
+
+The *explanatory variables* are the other variables that you want to use to explain the variation in the response. Figure 6.1 shows just one explanatory variable, temperature. It’s plotted on the horizontal axis.
+
+*Conditioning on explanatory variables* means taking the value of the explanatory variables into account when looking at the response variables. When in Figure 6.1 you looked at the gas usage for those months with a temperature near 49°, you were conditioning gas usage on temperature.
+
+The *model value* is the output of a function. The function – called the model function – has been arranged to take the explanatory variables as inputs and return as output a typical value of the response variable. That is, the model function gives the typical value of the response variable conditioning on the explanatory variables. The function shown in Figure 6.2 is a model function. It gives the typical value of gas usage conditioned on the temperature. For instance, at 49°, the typical usage is 65 ccf. At 20°, the typical usage is much higher, about 200 ccf.
+
+The *residuals* show how far each case is from its model value. For example, one of the cases plotted in Figure 6.2 is a month where the temperature was 13° and the gas usage was 191 ccf. When the input is 13°, the model function gives an output of 228 ccf. So, for that case, the residual is 191 - 228 = -37 ccf. Residuals are always “actual value minus model value.”
+
+Models partition the variation in the response variable. Some of the variability is explained by the model, the remainder is unexplained. The model values capture the “deterministic” or “explained” part of the variability of the response variable from case to case. The residuals represent the “random” or “unexplained” part of the variability of the response variable.
+
+
+There are two distinct ways that you can read a model.
+
+*Read out the model value.* Plug in specific values for the explanatory variables and read out the resulting model value. For the model in Figure 6.1, an input temperature of 35° produces a predicted output gas usage of 125 ccf. For the model in Figure 6.4 a single, 30-year old female has a model value of $8.10 per hour. (Remember, the model is based on data from 1985!)
+
+*Characterize the relationship described by the model.* In contrast to reading out a model value for some specific values of the explanatory variables, here interest is in the overall relationship: how gas usage depends on temperature; how wages depend on sex or marital status or age.
+
+Careful when drawing conclusion (i.e. causation): longitudinal data vas. cross-sectional data.
+
