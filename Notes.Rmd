@@ -101,3 +101,14 @@ There are two distinct ways that you can read a model.
 
 Careful when drawing conclusion (i.e. causation): longitudinal data vas. cross-sectional data.
 
+There are just a few basic kinds of *models terms*. They will be introduced by example in the following sections
+
+*intercept term*: a sort of “baseline” that is included in almost every model.
+*main terms*: the effect of explanatory variables directly.
+*interaction terms* how different explanatory variables modulate the relationship of each other to the response variable.
+*transformation terms*: simple modifications of explanatory variables.
+
+Interaction terms can introduce a problem called multi-collinearity which can reduce the reliability of models. (See Chapter 12.) Fortunately, it’s not hard to detect multi-collinearity and to drop interaction terms if they are causing a problem
+
+# Chapter 7
+
