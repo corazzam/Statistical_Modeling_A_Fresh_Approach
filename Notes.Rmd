@@ -112,3 +112,30 @@ Interaction terms can introduce a problem called multi-collinearity which can re
 
 # Chapter 7
 
+# Chapter 10: total vs. partial relationship
+
+
+In this chapter you’ll see how models can be used to examine data as if some variables were being held constant. Perhaps the most important message of the chapter is that there is no point hiding your head in the sand; simply ignoring a variable is not at all the same thing as holding that variable constant. By including multiple variables in a model you make it possible to interpret that model in terms of holding the variables constant. But there is no methodological magic at work here. The results of modeling can be misleading if the model does not reflect the reality of what is happening in the system under study. Understanding how and when models can be used effectively, and when they can be misleading, will be a major theme of the remainder of the book.
+
+
+When you want to examine the relationship between two variables, but there are additional variables that may be coming into play. The additional variables are called covariates or confounders .
+
+The term partial relationship describes a relationship with one or more covariates being held constant. In contrast to a partial relationship where certain variables are being held constant, there is also a total relationship.
+
+
+
+The most intuitive way to hold age constant is to look at the relationship between price and mileage for a subset of the cars; include only those cars of a given age. By looking at the different age groups individually, you are holding age approximately constant in your model. The relationship you find in this way between price and mileage is a partial relationship. Of course, there are other variables that you didn’t hold constant. So, to be precise, you should describe the relationship you found as a partial relationship with respect to age.
+
+
+One way to summarize the differences in earnings between men and women is to answer this question: How would the earnings of the men have been different if the men were women? Of course you can’t know all the changes that might occur if the men were somehow magically transformed, but you can use the model to calculate the change assuming that all other variables except sex are held constant. This process is called adjustment.
+
+
+Sometimes the total relationship is the opposite of the partial relationship. This is Simpson’s paradox.
+
+
+When you are not doing an experiment but rather working with observational data, you can hold a covariate constant by throwing out data. Do you want to see the partial relationship between price and mileage while holding age constant? Then restrict your analysis to cars that are all the same age, say 3 years old. Want to know the relationship between breath-holding time and body size holding sex constant? Then study the relationship in just women or in just men.
+
+
+Modeling provides a powerful and efficient way to study partial relationships that does not require studying separate subsets of data. Just include multiple explanatory variables in the model. Whenever you fit a model with multiple explanatory variables, the model gives you information about the partial relationship between the response and each explanatory variable with respect to each of the other explanatory variables.
+
+The alignment of model vectors and covariates is called *collinearity* and will play a very important role in Chapter 12 in shaping not just the coefficients themselves but also the precision with coefficients can be estimated.
