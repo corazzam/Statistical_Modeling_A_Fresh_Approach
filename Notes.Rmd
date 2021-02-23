@@ -139,3 +139,26 @@ When you are not doing an experiment but rather working with observational data,
 Modeling provides a powerful and efficient way to study partial relationships that does not require studying separate subsets of data. Just include multiple explanatory variables in the model. Whenever you fit a model with multiple explanatory variables, the model gives you information about the partial relationship between the response and each explanatory variable with respect to each of the other explanatory variables.
 
 The alignment of model vectors and covariates is called *collinearity* and will play a very important role in Chapter 12 in shaping not just the coefficients themselves but also the precision with coefficients can be estimated.
+
+# Chapter 11 Modelling Randomness
+
+
+According to the frequentist view of probability, you should base a probability model of a coin on the relative proportion of times that heads or tails comes up in a very large number of trials.
+
+o a subjectivist , it can be meaningful to think about current international events and conclude, “there’s a one-quarter chance that this dispute will turn into a war.” Or, “the probability that there will be an economic recession next year is only 5 percent.”
+
+
+The Bayesian philosophy of probability emphasizes the methods of probability calculus that are useful for exploring the consequences of beliefs.
+
+
+A statistical model describes one or more variables and their relationships. In contrast, a probability model describes the outcomes of a random event, sometimes called a random variable. The setting of a random variable refers to how the event is configured. Some examples of settings:
+
+Each of the models has one or more parameters that can be used to adjust the models to the particular details of a setting. In this sense, the parameters are akin to the model coefficients that are set when fitting models to data.
+
+The calculation of percentiles, coverage intervals, and inverse percentiles is so common, that a shorthand way of doing it has been developed for normal models. At the heart of this method is the z-score.
+
+The z-score is a way of referring a particular value of interest to a probability model or a distribution of values. The z-score measures how far a value is from the center of the distribution. The units of the measurement are in terms of the standard deviation of the distribution. That is, if the value is x in a distribution with mean  
+m
+  and standard deviation s, the z-score is: z = (x - m) / s.
+  
+#  Chaper 12 Confidence in models
