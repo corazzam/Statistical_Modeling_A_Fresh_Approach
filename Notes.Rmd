@@ -162,3 +162,74 @@ m
   and standard deviation s, the z-score is: z = (x - m) / s.
   
 #  Chaper 12 Confidence in models
+
+This chapter introduces methods that can be used to estimate the precision of coefficients from data. A standard format for presenting this estimation is the confidence interval.
+
+It’s important to contrast precision with accuracy. Precision is about repeatability. Accuracy is about how the result matches the real world.
+
+One way to calculate a confidence interval on a model value is similar to bootstrapping. Conduct many trials on resampled data. For each trial, fit the model and calculate the model value from the resulting coefficients. The spread of the various model values from the trials gives the standard error and confidence interval. For Bill, the 95% confidence interval on his model height works out to be 70.13 ± 0.27 inches: a precision of about a quarter of an inch. This high precision reflects the small standard errors of the coefficients which arise in turn from the large amount of data used to fit the model.
+
+
+
+It is wrong to interpret this interval as saying something about the actual range of heights of men like Bill, that is, men whose mother is 67 inches and father 69 inches. The model-value confidence interval should not be interpreted as saying that 95 percent of such men will have heights in the interval 70.13 ± 0.27. Instead, this interval means that if you were to fit a model based on the entire population – not just the 898 cases in Galton’s data – the model you would fit would likely produce a model value for Bill close to 70.13. In other words, the model-value confidence interval is not so much about the uncertainty in Bill’s height as in what the model has to say about the average for men like Bill.
+
+If you are interested in what the model has to say about the uncertainty the prediction of Bill’s height, you need to ask a different question and compute a different confidence interval. The prediction confidence interval takes into account the spread of the cases around their model values: the residuals. For the model given above, the standard deviation of the residuals is 2.15 inches – a typical person varies from the model value by that amount.
+
+The prediction confidence interval takes into account this case-by-case residual to give an indication of the range of heights into which the actual value is likely to fall. For men like Bill, the 95% prediction interval is 70.13 ± 4.24 inches. This is much larger than the interval on the model values, and reflects mainly the size of the residual of actual cases around their model values.
+
+The good news is that you don’t need to be afraid of trying a model term. Use the standard errors to judge when your model is acceptable and when you need to think about dropping terms due to collinearity.
+
+
+The margin of error tells you about the precision of a coefficient: how much variation is to be anticipated due to the random nature of sampling. It does not, unfortunately, tell you about the accuracy of the coefficient; how close it is to the “true” or “population” value.
+
+Chapter 13 - The Logic of Hypothesis Testing
+
+Deductive Reasoning
+Deductive reasoning involves a series of rules that bring you from given assumptions to the consequences of those assumptions. For example, here is a form of deductive reasoning called a syllogism:
+Assumption 1: No healthy food is fattening.
+Assumption 2: All cakes are fattening.
+Conclusion: No cakes are healthy.
+
+The contrapositive is a way of recasting an assumption in a new form that will be true so long as the original assumption is true. For example, suppose the original assumption is, “My car is red.” Another way to state this assumption is as a statement of implication, an if-then statement:
+
+
+
+Inductive Reasoning
+In contrast to deductive reasoning, inductive reasoning involves generalizing or extrapolating from a set of observations to conclusions. An observation is not an assumption: it is something we see or otherwise perceive. For instance, you can go to Australia and see that kangaroos hop on two legs. Every kangaroo you see is hopping on two legs. You conclude, inductively, that all kangaroos hop on two legs.
+
+
+
+NUll Hypothesis
+
+In a hypothesis test one assumes that the hypothesis to be tested is true and draws out the consequences of that assumption in a deductive process. This can be written as an if-then statement:
+
+If hypothesis H is true, then the test statistic S will be drawn from a probability distribution P.
+
+An outcome of disagreement gives a more interesting result, because the contrapositive gives logical traction to the observation; “If it is not red, then it is not my car.” Seeing “not red” implies “not my car.” Similarly, seeing that S is not a plausible outcome from P, tells you that H is not a plausible possibility. In such a situation, you can legitimately say, “I reject the hypothesis.”
+
+Ironically, in the case of observing agreement between S and P, the only permissible statement is, “I fail to reject the hypothesis.” You certainly aren’t entitled to say that the evidence causes you to accept the hypothesis.
+
+
+In choosing a hypothesis to test, you need to keep in mind two criteria.
+
+Criterion 1: The only possible interesting outcome of a hypothesis test is “I reject the hypothesis.” So make sure to pick a hypothesis that it will be interesting to reject.
+
+Criterion 2: To perform the deductive stage of the test, you need to be able to calculate the range of likely outcomes of the test statistic. This means that the hypothesis needs to be specific.
+
+The convention in hypothesis testing is to consider the observation as being implausible when the p-value is less than 0.05. In the stock market example, the p-value is larger than 0.05, so the outcome is to fail to reject the null hypothesis that stock prices are a random walk with no trend.
+
+
+Suppose the null hypothesis really were true; suppose stock prices really are a random walk with no trend. In such a world, it’s still possible to see an implausible value of the test statistic. But, if the null hypothesis is true, then seeing an implausible value is misleading; rejecting the null is a mistake. This sort of mistake is called a Type I error.
+
+
+The threshold value of the p-value below which the null should be rejected is a probability: the probability of rejecting the null in a world where the null hypothesis is true. This probability is called the significance level of the test.
+
+It’s important to remember that the significance level is a conditional probability. It is the probability of rejecting the null in a world where the null hypothesis is actually true. Of course that’s a hypothetical world, not necessarily the real world.
+
+Suppose the world really were like the alternative hypothesis. What is the probability that, in such a world, you would end up failing to reject the null hypothesis? Such a mistake, where you fail to reject the null in a world where the alternative is actually true, is called a Type II error.
+
+
+The probability of rejecting the null in a world where the alternative is true is called the power of the hypothesis test. Of course, if the alternative is true, then it’s completely appropriate to reject the null, so a large power is desirable.
+
+# Chapter 14 Hypothesis Testing on Whole Models
+
